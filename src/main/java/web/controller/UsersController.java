@@ -26,13 +26,13 @@ public class UsersController {
         return "listUsers";
     }
 
-    @GetMapping("/createUser")
+    @GetMapping("/addUser")
     public String createUserFrom(User user, Model model) {
         model.addAttribute("user", user);
-        return "createUser";
+        return "addUser";
     }
 
-    @PostMapping("/createUser")
+    @PostMapping("/addUser")
     public String createUser(User user) {
         userService.addUser(user);
         return "redirect:/";
