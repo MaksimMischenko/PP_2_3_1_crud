@@ -8,29 +8,29 @@
 <div>
     <div>
         <h2>Users</h2>
-        <table>
+        <table th:border="1">
             <thead>
             <tr>
-                <th>Id</th>
                 <th>Name</th>
                 <th>Surname</th>
-                <th>Age</th>
+                <th>Email</th>
+                <th>Phone</th>
                 <th>Operations</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="user : ${users}">
-                <td th:text="${user.getId()}"></td>
                 <td th:text="${user.getName()}"></td>
                 <td th:text="${user.getSurname()}"></td>
-                <td th:text="${user.getAge()}"></td>
-                <td><a th:href="@{user-update/{id}(id=${user.id})}">Edit</a>
-                <a th:href="@{user-delete/{id}(id=${user.id})}">Delete</a></td>
+                <td th:text="${user.getEmail()}"></td>
+                <td th:text="${user.getPhone()}"></td>
+                <td><a th:href="@{updateUser/{id}(id=${user.id})}">Edit</a>
+                <a th:href="@{deleteUser/{id}(id=${user.id})}">Delete</a></td>
             </tr>
             </tbody>
         </table>
     </div>
-    <p><a href="/crud/user-create">Add user</a></p>
+    <p><a href="/createUser">Add user</a></p>
 </div>
 </body>
 </html>

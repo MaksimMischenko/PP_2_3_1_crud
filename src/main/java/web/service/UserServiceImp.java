@@ -44,4 +44,5 @@ public class UserServiceImp implements UserService {
     public List<User> getListUsers() {
         return userDao.getListUsers();
     }
+
 }

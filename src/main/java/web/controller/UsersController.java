@@ -23,37 +23,38 @@ public class UsersController {
     public String getUserList(Model model) {
         List<User> users = userService.getListUsers();
         model.addAttribute("users", users);
-        return "user-list";
+        return "listUsers";
     }
 
-    @GetMapping("/user-create")
+    @GetMapping("/createUser")
     public String createUserFrom(User user, Model model) {
         model.addAttribute("user", user);
-        return "user-create";
+        return "createUser";
     }
 
-    @PostMapping("/user-create")
+    @PostMapping("/createUser")
     public String createUser(User user) {
         userService.addUser(user);
         return "redirect:/";
     }
 
-    @GetMapping("user-delete/{id}")
+    @GetMapping("deleteUser/{id}")
     public String removeUser(@PathVariable("id") int id) {
         userService.removeUser(id);
         return "redirect:/";
     }
 
-    @GetMapping("/user-update/{id}")
+    @GetMapping("/updateUser/{id}")
     public String updateUserForm(@PathVariable("id") int id, Model model) {
         User user = userService.getUserById(id);
         model.addAttribute("user", user);
-        return "user-update";
+        return "updateUser";
     }
 
-    @PostMapping("/user-update")
+    @PostMapping("/updateUser")
     public String updateUser(User user) {
         userService.updateUser(user);
         return "redirect:/";
     }
+
 }
